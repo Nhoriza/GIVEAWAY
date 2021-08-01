@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"> -->
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,200&display=swap');
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #1E7B28;
+        font-family: 'Montserrat', sans-serif;
+        opacity: .95;
+    }
+
+    form {
+        width: 450px;
+        min-height: 500px;
+        height: auto;
+        border-radius: 5px;
+        margin: 2% auto;
+        box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+        padding: 2%;
+        background-color: #002900;
+        color: white;
+        
+        text-align: center;
+    }
+
+    /* form Container */
+    form .container {
+        display: -webkit-flex;
+        display: flex;
+    
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+    
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    
+        margin: 0 auto;
+    }
+
+    /* the header form form */
+    header {
+        margin: 10% auto 10% auto;
+        text-align: center;
+        color: white;
+    }
+
+    /* Login title form form */
+    header h2 {
+        font-size: 250%;
+        font-family: 'Montserrat', sans-serif;
+        color:white;
+    }
+
+    /*  A welcome message or an explanation of the login form */
+    header p {letter-spacing: 0.05em;}
+
+    .input-item {
+        background: #fff;
+        color: #333;
+        padding: 14.5px 0px 15px 9px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+
+    /* inputs form  */
+    input[class="form-input"]{
+        display: inline-block;
+
+        width: 300px;
+        height: 50px;
+    
+        margin-top: 2%;
+        padding: 15px;
+        
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        color: #5E6472;
+    
+        outline: none;
+        border: none;
+    
+        border-radius: 5px 5px 5px 5px;
+        transition: 0.2s linear;
+        
+    }
+
+    button {
+        display: inline-block;
+        color: #333;
+    
+        width: 280px;
+        height: 50px;
+    
+        padding: 0 20px;
+        background: #fff;
+        border-radius: 5px;
+        
+        outline: none;
+        border: none;
+        
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s linear;
+        
+        margin: 7% auto;
+        letter-spacing: 0.05em;
+        
+    }
+
+    /* buttons hover */
+    button:hover {
+        background-color: #1E7B28 ;
+        color: white;
+    }    
+
+    .error{
+        color: red; 
+    }
+  </style>
+</head>
+
+<body>
+    <div class="overlay">
+        <form method="POST">
+            <div class="container">
+                <header>
+                    <h2>Login</h2>
+                    <p>Please enter your login credentials</p>
+
+                    <!-- {% if boolean==True %}
+                    Yes it is true!
+                    {% endif %} -->
+                </header>
+
+                <br>
+                {% with messages = get_flashed_messages(with_categories=true)%}
+                {% if messages %}
+                    {% for category, message in messages %} 
+                        {% if category =='error' %}
+                            <div>
+                                {{message}}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+                
+                <div class="field-set">
+                    <input class="form-input" id="username" type="text" placeholder="Username" name="username" required>
+                    <input class="form-input"  id="password" type="password" placeholder="Password"  name="password" required>
+                </div>
+
+                <br>
+                <button type="submit" class="login"> Login </button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

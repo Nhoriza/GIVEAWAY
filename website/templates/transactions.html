@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GIVEAWAY</title>
+	<style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,200&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            opacity: .95;
+            text-align: center;
+            background-color: #002900;
+        }
+
+        .navbar
+        {
+            background-color: #002900;
+            height: 5%; 
+            text-align: center;
+                    
+            font-size: 150%;
+            position: sticky; 
+            top: 0px;
+            
+            z-index: 1; 
+
+            padding-top: 1%;
+            padding-bottom: 1%;
+
+            margin-bottom: 5px;
+        }
+
+        .headerTitle{
+            color: white; 
+            font-size: 80%; 
+
+            padding-right: 3%; 
+            padding-left: 3%; 
+
+            font-weight: 800;
+        }
+
+        .headerTitle a{
+            color: white; 
+            text-decoration: none;
+        }
+
+        .headerTitle a:hover{
+            color: lightgreen;
+            text-decoration: underline;
+        }
+
+        .headerTitle .active{
+            color: lightgreen; 
+        }
+
+        .headerTitle .active:hover{
+            text-decoration: none;
+        }
+
+        
+        .transaction-table{
+            background-color: white;
+            color: #002900;
+            width: 70%;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+
+        .item{
+            color: white;
+            text-align: left;
+            margin-left: 15%; 
+            
+        }
+
+        .button-action {
+            color: #002900;
+            font-weight: 600;
+            text-decoration: underline;
+            font-family: 'Montserrat', sans-serif;
+            font-size: medium;
+            background: transparent;
+            box-shadow: 0px 0px 0px transparent;
+            border: 0px solid transparent;
+            text-shadow: 0px 0px 0px transparent;
+        }
+
+        .button-action:hover {
+            background: transparent;
+            box-shadow: 0px 0px 0px transparent;
+            border: 0px solid transparent;
+            text-shadow: 0px 0px 0px transparent;
+            color: lightgreen;
+        }
+
+        .button-action{
+            color: #002900;
+            font-weight: 600;
+        }
+
+        .button-action:hover{
+            color: lightgreen;
+        }
+
+
+    </style>
+</head>
+<body>
+	<nav class="navbar">
+        <span class="headerTitle"><a href="{{ url_for('views.landing') }}">Home</a></span>
+		<span class="headerTitle"><a href="{{ url_for('views.giver') }}" >Add Gift</a></span>
+		<span class="headerTitle"><a href="{{ url_for('views.transactions') }}" class="active">Transactions</a></span>
+	</nav>
+
+	<div class="transaction-container">
+        
+		<!-- <ul class="items-transaction" id="transaction">
+            {% for item in user.item %}
+                <li class="item">{{item.itemName}}</li>
+            {% endfor %}
+        </ul> -->
+
+        {% for item in user.item %}
+            
+            <table class="transaction-table">
+                <h3 class="item">Item Name: {{item.itemName}}</h3>
+                <tr class="receiver-details">
+                    <th>Transaction ID</th>
+                    <th>UserName</th> 
+                    <th>Giving Points</th> 
+                    <th>Mobile Number</th>
+                    <th></th>
+                </tr>
+                
+                {% for transaction in transaction_list %}
+                    <!-- {% if item.id == transaction['item_id']%} -->
+                    <form method="POST">
+                        <tr>
+                            <input name="itemID" type="hidden" value={{item.id}}>
+                            <input name="transactionID" type="hidden" value={{transaction['transaction_id']}}>
+                            <input name="receiverUsername" type="hidden" value={{transaction['receiver_name']}}>
+
+                            <td>{{transaction['transaction_id']}}</td>
+                            <td>{{transaction['receiver_name']}}</td>
+                            <td>{{transaction['receiver_points']}}</td>
+                            <td>{{transaction['receiver_num']}}</td>
+                            {% if transaction['transaction_accepted'] == False %}
+                                <td><button class="button-action" type="submit">Give Item</button></td>
+                            {% elif transaction['transaction_accepted'] == True and transaction['transaction_completed']==False  %}
+                                <td>Pending</td>
+                            {% else %}
+                                <td style="font-weight: 700;">Completed</td>
+                            {% endif %}
+                        </tr>
+                    </form>
+                    <!-- {% endif %} -->
+                {% endfor %}
+                
+                
+          </table>
+
+        {% endfor %}
+    </div>
+    	
+</body>
+</html>

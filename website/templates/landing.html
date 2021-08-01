@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GIVEAWAY</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,200&display=swap');
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #1E7B28;
+        font-family: 'Montserrat', sans-serif;
+        opacity: .95;
+        text-align: center;
+    }
+
+    .text-container{
+      padding: 5%; 
+      color: white;
+    }
+
+
+    button {
+        display: inline-block;
+        color: #333;
+    
+        width: 180px;
+        height: 250px;
+    
+        padding: 5px 15px;
+        background: #fff;
+        border-radius: 5px;
+        
+        outline: none;
+        border: none;
+        
+        font-family: 'Montserrat', sans-serif;
+        font-size: 150%;
+        font-weight: 700;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s linear;
+        
+        margin: 0px 50px;
+        /* letter-spacing: 0.05em; */
+        
+    }
+
+    /* buttons hover */
+    button:hover {
+        background-color: #002900 ;
+        color: white;
+    }    
+
+    .logout{
+      color:white
+    }
+  </style>
+</head>
+
+<body>
+    <div class="overlay">
+      <div class="text-container">
+          <h2>Hi {{user.username}}! What do you want to do?</h2>
+         
+      </div>
+
+      <div class="button-container">
+        <a href="{{ url_for('views.giver') }}"><button class="give"> Give </button></a>
+        <a href="{{ url_for('views.receiver') }}"><button class="receive"> Receive </button></a>
+      </div>
+
+      <br><br>
+      <a class="logout" href="{{ url_for('auth.logout') }}">Logout</a>
+    </div>
+</body>
+
+</html>

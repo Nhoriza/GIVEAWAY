@@ -1,0 +1,6 @@
+2021-08-01 14:12:29,373 INFO: nhoriza added items [in c:\Users\nhoriza\Documents\COLLEGE\3RD YEAR COLLEGE\Third Sem\GIVEAWAY\website\views.py:43]
+2021-08-01 14:13:51,352 INFO: cindy requested electricfan [in c:\Users\nhoriza\Documents\COLLEGE\3RD YEAR COLLEGE\Third Sem\GIVEAWAY\website\views.py:120]
+2021-08-01 14:14:14,528 INFO: User gives item 6 to cindy [in c:\Users\nhoriza\Documents\COLLEGE\3RD YEAR COLLEGE\Third Sem\GIVEAWAY\website\views.py:92]
+2021-08-01 14:14:37,078 INFO: 3 is completed. nhoriza gains additional 150 giving points. [in c:\Users\nhoriza\Documents\COLLEGE\3RD YEAR COLLEGE\Third Sem\GIVEAWAY\website\views.py:171]
+2021-08-01 14:24:39,311 ERROR: The username and password does not match [in c:\Users\nhoriza\Documents\COLLEGE\3RD YEAR COLLEGE\Third Sem\GIVEAWAY\website\auth.py:61]
+2021-08-01 14:24:48,945 ERROR: User is not registered [in c:\Users\nhoriza\Documents\COLLEGE\3RD YEAR COLLEGE\Third Sem\GIVEAWAY\website\auth.py:61]

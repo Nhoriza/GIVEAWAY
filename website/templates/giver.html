@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GIVEAWAY</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,200&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            opacity: .95;
+            text-align: center;
+        }
+
+        .navbar
+        {
+            background-color: #002900;
+            height: 5%; 
+            text-align: center;
+                    
+            font-size: 150%;
+            position: sticky; 
+            top: 0px;
+            
+            z-index: 1; 
+
+            padding-top: 1%;
+            padding-bottom: 1%;
+        }
+
+        .headerTitle{
+            color: white; 
+            font-size: 80%; 
+
+            padding-right: 3%; 
+            padding-left: 3%; 
+
+            font-weight: 800;
+        }
+
+        a{
+            color: white; 
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: lightgreen;
+            text-decoration: underline;
+        }
+
+        .active{
+            color: lightgreen; 
+        }
+
+        .active:hover{
+            text-decoration: none;
+        }
+
+        form {
+        width: 450px;
+        min-height: 500px;
+        height: auto;
+        border-radius: 5px;
+        margin: 2% auto;
+        box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+        padding: 2%;
+        background-color: #002900;
+        color: white;
+        
+        text-align: center;
+    }
+
+    /* form Container */
+    form .container {
+        display: -webkit-flex;
+        display: flex;
+    
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+    
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    
+        margin: 0 auto;
+    }
+
+    /* the header form form */
+    header {
+        margin: 10% auto 10% auto;
+        text-align: center;
+        color: white;
+    }
+
+    /* Login title form form */
+    header h2 {
+        font-size: 250%;
+        font-family: 'Montserrat', sans-serif;
+        color:white;
+    }
+
+    /*  A welcome message or an explanation of the login form */
+    header p {letter-spacing: 0.05em;}
+
+    .input-item {
+        background: #fff;
+        color: #333;
+        padding: 14.5px 0px 15px 9px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+
+    /* inputs form  */
+    input[class="form-input"]{
+        display: inline-block;
+
+        width: 300px;
+        height: 50px;
+    
+        margin-top: 2%;
+        padding: 15px;
+        
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        color: #5E6472;
+    
+        outline: none;
+        border: none;
+    
+        border-radius: 5px 5px 5px 5px;
+        transition: 0.2s linear;
+        
+    }
+
+    button {
+        display: inline-block;
+        color: white;
+    
+        width: 280px;
+        height: 50px;
+    
+        padding: 0 20px;
+        background: #1E7B28 ;
+        border-radius: 5px;
+        
+        outline: none;
+        border: none;
+        
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s linear;
+        
+        margin: 7% auto;
+        letter-spacing: 0.05em;
+        
+    }
+
+    /* buttons hover */
+    button:hover {
+        border: 1px solid white;
+    }    
+
+
+    .label-file:hover {
+        background-color: #1E7B28 ;
+        color: white;
+    }
+
+    .label-file{
+        margin-top: 10px; 
+        border-radius: 5px 5px 5px 5px;
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer; 
+    }
+
+    </style>
+
+    
+</head>
+<body>
+	<nav class="navbar">
+        <span class="headerTitle"><a href="{{ url_for('views.landing') }}">Home</a></span>
+		<span class="headerTitle"><a href="{{ url_for('views.giver') }}" class="active">Add Gift</a></span>
+		<span class="headerTitle"><a href="{{ url_for('views.transactions') }}">Transactions</a></span>
+	</nav>
+
+    <form method="POST">
+        <div class="container">
+            <header>
+                <h2>Add Item</h2>
+                <p>Please input the necessary information</p>
+            </header>
+
+            <br>
+
+            <div class="field-set">
+                <input class="form-input" id="item-name" type="text" name="item-name" placeholder="Item Name" required>
+                <input class="form-input" id="item-desc" type="text" name="item-desc" placeholder="Item Description" required>
+                <!-- <br> 
+                <label for="file-upload" class="label-file"> Upload Item Image </label>
+                <input id="file-upload" name="item-img" type="file" accept="image/png, image/jpeg" style="display:none;">
+                <label id="file-name"></label> -->
+            </div>
+
+            <br>
+            <button class="add"> Add Item </button>
+        </div>
+    </form>
+    	
+</body>
+</html>
